@@ -1,0 +1,37 @@
+version: "3"
+services:
+  pdpa-utility:
+    container_name: pdpa-utility-uat
+    image: testpdpsrv2.tokiomarinelife.co.th/pdpa/pdpa-utility:REPLACE_TAG
+    ports:
+      - 192.168.167.5:20006:3000
+    restart: always
+    env_file:
+      - variables.env
+    #volumes:
+    #- /home/admin/Projects/pdpa-utility-uat/logs:/app/logs:rw
+    read_only: true
+    tmpfs:
+      - /tmp
+    cpu_shares: 2048
+    mem_limit: 2048m
+    #restart: "on-failure:5"
+    pids_limit: 1000
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - tokio-network
+    logging:
+      options:
+        max-size: "1m"
+        max-file: "2"
+    healthcheck:
+      test: ["CMD", "stat", "/etc/localtime"]
+      interval: 5s
+      timeout: 1s
+      retries: 5
+    command: "yarn start"
+
+networks:
+  tokio-network:
+    external: true

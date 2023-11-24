@@ -1,0 +1,46 @@
+{
+  "name": "tmlth-util-modules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "cross-env DEBUG=app nodemon --trace-warnings --exec babel-node src/app.js",
+    "build": "rm -rf dist | babel src -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "patch": "release-it patch --ci",
+    "minor": "release-it minor --ci",
+    "major": "release-it major --ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/devrvp/pdpa-agent/tmlth-util-modules.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/devrvp/pdpa-agent/tmlth-util-modules/issues"
+  },
+  "homepage": "https://gitlab.com/devrvp/pdpa-agent/tmlth-util-modules#readme",
+  "dependencies": {
+    "@pdf-lib/fontkit": "^1.1.1",
+    "amqplib": "^0.10.3",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dayjs": "^1.11.7",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jimp": "^0.22.7",
+    "lodash": "^4.17.21",
+    "morgan": "^1.10.0",
+    "pdf-lib": "^1.17.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "nodemon": "^2.0.14",
+    "release-it": "^14.11.7"
+  }
+}
